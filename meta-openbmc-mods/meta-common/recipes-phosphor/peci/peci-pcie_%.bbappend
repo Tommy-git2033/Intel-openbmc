@@ -1,3 +1,3 @@
 SRC_URI = "git://github.com/openbmc/peci-pcie"
 
-SRCREV = "9fa54b52f83c00fd713085e6849d3f261672d008"
+SRCREV = "d570dfd4f3a7c38b029f74a8194eeb3911b5f6a5"

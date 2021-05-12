@@ -1,5 +1,6 @@
 FILESEXTRAPATHS_prepend := "${THISDIR}/${PN}:"
 
-SRC_URI += "file://0031-iconv-Fix-incorrect-UCS4-inner-loop-bounds-BZ-26923.patch \
-            file://0032-Fix-buffer-overrun-in-EUC-KR-conversion-module-BZ-24973.patch \
-           "
+SRC_URI += " \
+    file://0034-Fix-double-free-in-netgroupcache-BZ-27462.patch \
+    file://0035-Fix-build-error.patch \
+    "

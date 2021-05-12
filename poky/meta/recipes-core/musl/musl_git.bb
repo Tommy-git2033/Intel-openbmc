@@ -4,9 +4,9 @@
 require musl.inc
 inherit linuxloader
 
-SRCREV = "d91a6cf6e369a79587c5665fce9635e5634ca201"
+SRCREV = "e5d2823631bbfebacf48e1a34ed28f28d7cb2570"
 
-BASEVER = "1.2.1"
+BASEVER = "1.2.2"
 
 PV = "${BASEVER}+git${SRCPV}"
 
@@ -15,7 +15,6 @@ PV = "${BASEVER}+git${SRCPV}"
 SRC_URI = "git://git.musl-libc.org/musl \
            file://0001-Make-dynamic-linker-a-relative-symlink-to-libc.patch \
            file://0002-ldso-Use-syslibdir-and-libdir-as-default-pathes-to-l.patch \
-           file://0001-crt-Add-.file-directive.patch \
           "
 
 S = "${WORKDIR}/git"
@@ -63,7 +62,7 @@ do_compile() {
 
 do_install() {
 	oe_runmake install DESTDIR='${D}'
-	install -d ${D}${bindir} ${D}${base_libdir} ${D}${sysconfdir}
+	install -d ${D}${bindir} ${D}/lib ${D}${sysconfdir}
         echo "${base_libdir}" > ${D}${sysconfdir}/ld-musl-${MUSL_LDSO_ARCH}.path
         echo "${libdir}" >> ${D}${sysconfdir}/ld-musl-${MUSL_LDSO_ARCH}.path
 	rm -f ${D}${bindir}/ldd ${D}${GLIBC_LDSO}
